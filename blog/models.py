@@ -8,6 +8,7 @@ def lnglat_validator(value):
         raise ValidationError('Invalid  Lng/Lat Type')
 
 class Post(models.Model):
+    author = models.CharField(max_length=20)
     title = models.CharField(max_length=100, verbose_name="Article Headline", help_text="Write the title shorter than 100 letters/whitespaces.")
     content = models.TextField(verbose_name="Article Content")
     tags = models.CharField(max_length=100, blank=True)
