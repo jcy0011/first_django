@@ -1,6 +1,7 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from . import views
 from . import views_cbv
+
 
 urlpatterns=[
     url(r'^sum/(?P<numbers>[\d/]+)/$', views.mysum),

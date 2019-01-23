@@ -1,8 +1,10 @@
 # blog/urls.py
-from django.conf.urls import url
+from django.conf.urls import url, include
 from . import views
 from django.urls import path
 from blog import views
+from django.conf import settings
+
 
 urlpatterns = [
     url(r'^$', views.post_list),
@@ -14,3 +16,10 @@ urlpatterns = [
     #url(r'^(?P<post_id>\d+)/comments/(?P<id>\d+)/edit/$', views.comment_edit, name='comment_edit'),
     #url(r'^(?P<post_id>\d+)/comments/(?P<id>\d+)/delete/$', views.comment_delete, name='comment_delete'),
 ]
+
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ]
