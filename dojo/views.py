@@ -57,7 +57,7 @@ def post_edit(request, id):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            post = form.save(commmit=False)
+            post = form.save(commit=False)
             post.ip = request.META['REMOTE_ADDR']
             post.save()
             return redirect('/dojo/')
