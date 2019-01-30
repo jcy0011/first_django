@@ -1,5 +1,6 @@
 from django.db import models
 import re
+from django.contrib.auth.models import User
 from django.forms import ValidationError
 
 # Create your models here.
@@ -14,7 +15,8 @@ class Post(models.Model):
         ('w', 'Withdrawn'),
     )
 
-    author = models.CharField(max_length=20)
+    #author = models.CharField(max_length=20)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, verbose_name="Article Headline", help_text="Write the title shorter than 100 letters/whitespaces.")
     content = models.TextField(verbose_name="Article Content")
     tags = models.CharField(max_length=100, blank=True)
