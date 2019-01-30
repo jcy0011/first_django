@@ -9,7 +9,9 @@ def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            post = Post.objects.create(**form.cleaned_data)
+            post = form.save(commmit=False)
+            post.ip = request.META['REMOTE_ADDR']
+            post.save()
             return redirect('/dojo/')
         else:
             form = PostForm()
