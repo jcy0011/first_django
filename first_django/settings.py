@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'blog',
     'dojo',
-    'accounts'
+    'accounts',
+    'shop',
 ]
 
 MIDDLEWARE = [

@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>First_Django's blog</title>
-</head>
-<body>
-    <h1>AskDjango</h1>
+{% extends "blog/layout.html" %}
+{% block content %}
     <p>
     안녕하세요. Hello. Guten Tag. ;)
     </p>
@@ -17,7 +10,7 @@
     </form>
 
     <ul>
-    {% for post in post_list %}
+        {% for post in post_list %}
         <li>
             {{ post.id  }}
             <a href="/blog/{{ post.id }}/">
@@ -26,7 +19,7 @@
             <small>{{ post.author }}</small>
             <small>{{ post.updated_at }}</small>
         </li>
-    {% endfor %}
+        {% endfor %}
     </ul>
 
     <ul>
@@ -34,5 +27,4 @@
         <li>Reason why the template path is set as blog/templates/blog/post_list.html<br/>
             instead of blog/templates/post_list.html will be explained later.</li>
     </ul>
-</body>
-</html>
+{% endblock %}
