@@ -10,9 +10,9 @@ from django.conf import settings
 app_name='blog'
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
-    #url(r'^new/$', views.post_new, name='post_new'),
+    url(r'^new/$', views.post_new, name='post_new'),
     path('cbv/new/', views_cbv.post_new),
-    url(r'^(?P<id>\d+)/$', views.post_detail, name='post_detail'),
+    url(r'^detail/(?P<id>\d+)/$', views.post_detail, name='post_detail'),
     #url(r'^(?P<id>\d+)/edit/$', views.post_edit, name='post_edit'),
     #url(r'^(?P<id>\d+)/delete/$', views.post_delete, name='post_delete'),
     #url(r'^(?P<id>\d+)/comments/$', views.comment_list, name='comment_list'),
