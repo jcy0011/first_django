@@ -1,11 +1,13 @@
 # blog/urls.py
 from django.conf.urls import url, include
+
+
 from . import views
 from django.urls import path
 from blog import views
 from django.conf import settings
 
-
+app_name='blog'
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
     #url(r'^new/$', views.post_new, name='post_new'),
