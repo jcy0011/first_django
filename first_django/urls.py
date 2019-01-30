@@ -21,3 +21,4 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^dojo/', include('dojo.urls')),
 ]
+

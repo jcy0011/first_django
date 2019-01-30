@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Comment
 from django.utils.safestring import mark_safe
 
 # Register your models here.
@@ -28,3 +28,7 @@ class PostAdmin(admin.ModelAdmin):
         updated_count = queryset.update(status='w')
         self.message_user(request, 'Changed the status of {} posts to "Withdrawn" status.'.format(updated_count))
     make_withdrawn.short_description = "Change status to 'Withdrawn'"
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    pass
