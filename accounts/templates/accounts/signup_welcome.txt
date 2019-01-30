@@ -1,0 +1,4 @@
+Hello, {{name}}. User {{name}} joined on {{when}}.
+Thank you.
+
+-askdjango
