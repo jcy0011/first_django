@@ -7,6 +7,7 @@ from . import views_cbv
 app_name='dojo'
 urlpatterns=[
     path('new/', views.post_new),
+    path('<int:id>/edit/', views.post_edit),
     url(r'^sum/(?P<numbers>[\d/]+)/$', views.mysum),
     url(r'^hello/(?P<name>[ㄱ-ㅎㅏ-ㅣ가-힣]{2,3})/(?P<age>\d+)/$', views.hello),
     url(r'^list1/$', views.post_list1),
