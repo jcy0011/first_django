@@ -1,0 +1,7 @@
+<h1>confirm deleting: {{ post }}</h1>
+Are you sure you want to delete the post?
+<form action="" method="post">
+    {% csrf_token %}
+    <a href="{{ post.get_absolute_url }}">Nope, cancel. </a>
+    <input type="submit" value="Yes, go on." />
+</form>
