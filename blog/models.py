@@ -2,6 +2,8 @@ from django.db import models
 import re
 from django.contrib.auth.models import User
 from django.forms import ValidationError
+from imagekit.models import ProcessedImageField
+from imagekit.processors import Thumbnail
 
 # Create your models here.
 from django.urls import reverse
@@ -22,7 +24,10 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, verbose_name="Article Headline", help_text="Write the title shorter than 100 letters/whitespaces.")
     content = models.TextField(verbose_name="Article Content")
-    photo = models.ImageField(blank=True, upload_to='blog/post/%Y/%m/%d')
+    photo = ProcessedImageField(blank=True, upload_to='blog/post/%Y/%m/%d',
+                                     processors=[Thumbnail(300,300)],
+                                     format='JPEG',
+                                     options={'quality': 60})
     tags = models.CharField(max_length=100, blank=True)
     lnglat = models.CharField(max_length=50, blank=True, validators=[lnglat_validator], help_text='Write in the format of longitude and latitude.')
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
