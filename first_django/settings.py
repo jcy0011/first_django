@@ -141,3 +141,5 @@ INTERNAL_IPS = ['127.0.0.1']
 
 MESSAGE_LEVEL = constants.DEBUG
 MESSAGE_TAGS = {constants.ERROR: 'danger'}
+
+NAVER_CLIENT_ID = '5ARO6TWIVrd9Da_77Nk'
