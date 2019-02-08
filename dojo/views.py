@@ -20,7 +20,7 @@ def post_new(request):
             return render(request, 'dojo/post_form.html', {
                 'form' : form
             })
-post_detail=DetailView.as_view(model=Post, pk_url_kwarg='id')
+post_detail=DetailView.as_view(model=Post)
 def mysum(request, numbers):
     # request: HttpRequest
     result = sum(map(lambda s: int(s or 0), numbers.split("/")))
