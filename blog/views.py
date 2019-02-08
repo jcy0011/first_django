@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404
 from .models import Post
 from .Forms import PostForm
@@ -9,6 +10,7 @@ def post_list(request):
     q = request.GET.get('q','')
     if q:
         qs = qs.filter(title__icontains=q)
+    # messages.error(request, 'error message test')
     return render(request, 'blog/post_list.html', {
         'post_list': qs,
         'q':q,
@@ -26,8 +28,8 @@ def post_new(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save()
+            messages.success(request, 'saved the new post')
             return redirect(post)
-        pass
     else:
         form = PostForm()
     return render(request, 'blog/post_form.html', {
@@ -40,6 +42,7 @@ def post_edit(request, id):
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save()
+            messages.success(request, 'edited the post')
             return redirect(post)
         pass
     else:
