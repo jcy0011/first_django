@@ -2,6 +2,8 @@
 from django.conf.urls import url, include
 
 from blog import views_cbv
+from django.conf.urls.static import static
+
 from . import views
 from django.urls import path
 from blog import views
@@ -20,6 +22,7 @@ urlpatterns = [
     #url(r'^(?P<post_id>\d+)/comments/(?P<id>\d+)/delete/$', views.comment_delete, name='comment_delete'),
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     import debug_toolbar
